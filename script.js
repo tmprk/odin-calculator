@@ -1,4 +1,5 @@
-let topField = document.querySelector('#top');
+let topDisplay = document.querySelector('#top');
+let bottomDisplay = document.querySelector('#bottom');
 
 function divide(x, y) {
     return x / y
@@ -20,7 +21,7 @@ function compute(operator, num1, num2) {
     switch (operator) {
         case '+':
             return add(num1, num2)
-        case '–':
+        case '-':
             return subtract(num1, num2)
         case '×':
             return multiply(num1, num2)
@@ -29,31 +30,53 @@ function compute(operator, num1, num2) {
     }
 }
 
-let operations = ['']
-let currentIndex = 0;
+let operator;
+let firstNum = '';
+let secondNum = '';
+let runningTotal;
 
 const buttons = document.querySelectorAll('button');
 buttons.forEach(button => {
     button.addEventListener('click', () => {
         let buttonType = button.className;
-        // console.log(buttonType);
         switch(buttonType) {
             case 'digit':
-                // if(operations[currentIndex].)
-                operations[currentIndex] += button.textContent;
+                topDisplay.textContent += button.textContent;
+                if (!operator) {
+                    firstNum += button.textContent;
+                } else {
+                    secondNum += button.textContent
+                }
                 break
             case 'operator':
-                operations.push(button.textContent);
-                currentIndex += 1
+                if (firstNum !== '' && secondNum == '') {
+                    operator = button.textContent;
+                    bottomDisplay.textContent = '';
+                }
+                if (runningTotal) {
+                    topDisplay.textContent = runningTotal;
+                }
+                // if operator exists, then compute what we have and then set runningTotal and firstNum
+                if (secondNum !== '') {
+                    runningTotal = compute(operator, parseFloat(firstNum), parseFloat(secondNum))
+                    console.log(runningTotal);
+                    operator = button.textContent;
+                    secondNum = '';
+                    firstNum = runningTotal;
+                    topDisplay.textContent = runningTotal;
+                }
+                topDisplay.textContent += button.textContent;
+                console.log(operator);
                 break
             case 'decimal':
-                operations[currentIndex] += '.';
+                firstNum += '.';
                 break
             case 'compute':
-                // console.log(operators)
+                runningTotal = compute(operator, parseFloat(firstNum), parseFloat(secondNum))
+                operator = secondNum = '';
+                firstNum = runningTotal;
+                bottomDisplay.textContent = runningTotal
         }
-        console.log(operations)
-        let character = button.textContent;
-        topField.textContent += character;
+        console.log(firstNum, operator, secondNum)
     })
 })
