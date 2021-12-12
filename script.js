@@ -15,27 +15,27 @@ function decimalPlaces(num) {
 
 function divide(x, y) {
     let result = x / y;
-    return decimalPlaces(result) > 4 ? result.toFixed(4) : result
+    return decimalPlaces(result) > 3 ? result.toFixed(3) : result
 }
 
 function multiply(x, y) {
     let result = x * y
-    return decimalPlaces(result) > 4 ? result.toFixed(4) : result
+    return decimalPlaces(result) > 3 ? result.toFixed(3) : result
 }
 
 function add(x, y) {
     let result = x + y;
-    return decimalPlaces(result) > 4 ? result.toFixed(4) : result
+    return decimalPlaces(result) > 3 ? result.toFixed(3) : result
 }
 
 function subtract(x, y) {
-    let result = x ** y;
-    return decimalPlaces(result) > 4 ? result.toFixed(4) : result
+    let result = x - y;
+    return decimalPlaces(result) > 3 ? result.toFixed(3) : result
 }
 
 function power(x, y) {
     let result = x ** y;
-    return decimalPlaces(result) > 4 ? result.toFixed(4) : result
+    return decimalPlaces(result) > 3 ? result.toFixed(3) : result
 }
 
 function compute(operator, num1, num2) {
@@ -96,7 +96,7 @@ buttons.forEach(button => {
                     topDisplay.textContent = runningTotal;
                 }
                 topDisplay.textContent += button.textContent;
-                console.log(runningTotal, operator);
+                // console.log(runningTotal, operator);
                 break
             case 'decimal':
                 if (secondNum == '' && operator == null) {
