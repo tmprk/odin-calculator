@@ -44,6 +44,7 @@ body {
     background-color: rgb(160 171 149);
     border: 1.5px solid rgba(0, 0, 0, .2);
     border-radius: 3px;
+    max-width: 300px;
     font-family: 'Texas Instruments TI-84 series Regular', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 

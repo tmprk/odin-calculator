@@ -76,7 +76,7 @@ buttons.forEach(button => {
                 } else {
                     secondNum += button.textContent
                 }
-                console.log(firstNum, operator, secondNum)
+                // console.log(firstNum, operator, secondNum)
                 break
             case 'operator':
                 if (firstNum !== '' && secondNum == '') {
@@ -111,6 +111,22 @@ buttons.forEach(button => {
                 operator = secondNum = '';
                 firstNum = runningTotal;
                 bottomDisplay.textContent = runningTotal
+                break
+            case 'sign':
+                if (firstNum !== '' && secondNum == '') {
+                    topDisplay.textContent = runningTotal
+                    runningTotal = compute('×', firstNum, -1)
+                    firstNum = runningTotal;
+                    bottomDisplay.textContent = runningTotal;
+                }
+                break
+            case 'root':
+                if (firstNum !== '' && secondNum == '') {
+                    topDisplay.textContent = `sqrt(${firstNum})`
+                    runningTotal = compute('^', firstNum, 0.5)
+                    firstNum = runningTotal;
+                    bottomDisplay.textContent = runningTotal;
+                }
                 break
             case 'clear':
                 topDisplay.textContent = '';
