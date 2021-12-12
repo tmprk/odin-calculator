@@ -6,6 +6,8 @@ This is the last project under Odin Project fundamentals. It was built using HTM
 
 ## Demo
 
+https://user-images.githubusercontent.com/49933688/145728626-349d60d1-b8a7-46f2-9f4f-09c07ca50b57.mov
+
 A live demo can be found [here](https://tmprk.github.io/odin-calculator/).
 
 ## Features
