@@ -99,11 +99,7 @@ buttons.forEach(button => {
                 // console.log(runningTotal, operator);
                 break
             case 'decimal':
-                if (secondNum == '' && operator == null) {
-                    firstNum += '.';
-                } else {
-                    secondNum += '.';
-                }
+                (secondNum == '' && operator == null) ? firstNum += '.' : secondNum += '.';
                 topDisplay.textContent += button.textContent;
                 break
             case 'compute':
@@ -114,7 +110,7 @@ buttons.forEach(button => {
                 break
             case 'sign':
                 if (firstNum !== '' && secondNum == '') {
-                    topDisplay.textContent = runningTotal
+                    topDisplay.textContent = firstNum
                     runningTotal = compute('×', firstNum, -1)
                     firstNum = runningTotal;
                     bottomDisplay.textContent = runningTotal;
