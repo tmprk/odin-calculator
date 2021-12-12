@@ -69,6 +69,16 @@ body {
     grid-row-gap: 4px;
 }
 
+.operator:not(#exponent) {
+    background-color: rgb(218, 162, 59);
+    border: 2px solid rgb(192, 147, 62);
+}
+
+.clear {
+    background-color: rgb(59, 147, 219);
+    border: 2px solid rgb(55, 122, 177);
+}
+
 #zero { grid-area: 5 / 1 / 6 / 2; }
 #decimal { grid-area: 5 / 2 / 6 / 3; }
 #equal { grid-area: 5 / 3 / 6 / 4; }
@@ -96,14 +106,14 @@ button {
     width: 40px;
     height: 40px;
     border-radius: 3px;
-    transition: background-color 200ms;
+    transition: filter 200ms;
 }
 
 button:hover {
-    background-color: rgb(187, 187, 187);
+    filter: brightness(0.8);
     cursor: pointer;
 }
 
 button:active {
-    background-color: rgb(168, 168, 168);
+    filter: brightness(0.6);
 }
